@@ -8,7 +8,7 @@ class AddPhoto extends Component {
 
 		this.state = {
 			photoName: '',
-			photoUrl: '',
+			photoImage: '',
 		}
 	}
 
@@ -25,10 +25,10 @@ class AddPhoto extends Component {
 	handleSubmit = event => {
 		let newPhoto = {
 			photoName: this.state.photoName,
-			photoUrl: this.state.photoUrl,
+			photoImage: this.state.photoImage,
 		};
 
-		axios.post('api/album', newPhoto).then( res => {
+		axios.post('/api/album', newPhoto).then( res => {
 			console.log("success");
 		}).catch( error => {
 			console.log("error");
@@ -50,11 +50,11 @@ class AddPhoto extends Component {
 				</label>
 				<br />
 				<label>
-					Photo Url:
+					Photo Image Url:
 					<input
-						name="photoUrl"
+						name="photoImage"
 						type="text"
-						value={this.state.photoUrl}
+						value={this.state.photoImage}
 						onChange={this.handleInputChange} />
 				</label>
 				<br />

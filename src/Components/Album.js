@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './Album.css';
-// import House from './House';
+import Photo from './Photo';
 
 class Album extends Component {
 	render() {
 		return (
 			<div className="Album">
 				This is Album
-				{/* <House /> */}
+				<Photo />
 			</div>
 		);
 	}

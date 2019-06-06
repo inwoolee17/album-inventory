@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './DeletePhoto.css'
+import './Photo.css';
 import axios from 'axios';
 import { css } from '@emotion/core';
 import ClipLoader from 'react-spinners/ClipLoader';
@@ -7,34 +7,36 @@ import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 
 const override = css`
-		display: block;
-		margin: 0 auto;
-		border-color: red;
+	display: block;
+	margin: 0 auto;
+	border-color: red;
 `;
 
-class DeletePhoto extends Component {
+class Photo extends Component {
 	constructor(){
 		super();
 
 		this.state = {
-			inventory: null,
+			album: null,
 			loading: true,
 			lightBoxImage: null,
 			lightBoxOpen: false,
 		}
 	};
 
-	componentsDidMount(){
+	componentDidMount(){
+		console.log('hit')
 		axios.get('/api/album')
 			.then(res => {
-			this.setState({
-				loading: false,
-				album: res.date
+				console.log(res);
+				this.setState({
+					loading: false,
+					album: res.data
+				})
 			})
-		})
-		.catch( error => {
-			console.log(error);
-		})
+			.catch( error => {
+				console.log(error);
+			})
 	};
 
 	deletePhoto = (id) => {
@@ -45,7 +47,7 @@ class DeletePhoto extends Component {
 				.then(res => {
 				this.setState({
 					loading: false,
-					album: res.date
+					album: res.data
 				})
 			})
 			.catch( error => {
@@ -57,7 +59,7 @@ class DeletePhoto extends Component {
 			})
 	};
 
-	ligthBox = (image) => {
+	lighthBox = (image) => {
 		this.setState({
 			lightBoxImage: image,
 			lightBoxOpen: true,
@@ -65,13 +67,13 @@ class DeletePhoto extends Component {
 	};
 
 	render() {
+		console.log('render')
 		let album = this.state.album ? this.state.album.map( (e, i) => {
 			return (
 				<div key={i} className="PhotoList">
-					<img onClick={ () => this.lightBox(e.image)} src={e.image} alt={"albumPhoto"} />
+					<img onClick={ () => this.lightBox(e.image)} src={e.image} alt={"photoImage"} />
 					<div className="PhotoList-Description">
 						<span>{e.name}</span>
-						<button onClick={ () => this.deletePhoto(e.id)}>Delete</button>
 					</div>
 				</div>
 			);
@@ -97,4 +99,4 @@ class DeletePhoto extends Component {
 	}
 }
 
-export default DeletePhoto;
+export default Photo;
