@@ -1,1 +1,2 @@
-SELECT * FROM album;
+SELECT * FROM album
+order by id;
