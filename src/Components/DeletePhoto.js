@@ -81,7 +81,7 @@ class DeletePhoto extends Component {
 				<ClipLoader
 					css={override}
 					sizeUnit={"px"}
-					size={150}
+					size={50}
 					color={'#123abc'}
 					loading={this.state.loading}
 				/>

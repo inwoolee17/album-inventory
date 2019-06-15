@@ -25,10 +25,8 @@ class Photo extends Component {
 	};
 
 	componentDidMount(){
-		console.log('hit')
 		axios.get('/api/album')
 			.then(res => {
-				console.log(res);
 				this.setState({
 					loading: false,
 					album: res.data
@@ -83,7 +81,7 @@ class Photo extends Component {
 				<ClipLoader
 					css={override}
 					sizeUnit={"px"}
-					size={150}
+					size={50}
 					color={'#123abc'}
 					loading={this.state.loading}
 				/>

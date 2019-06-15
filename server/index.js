@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const app = express();
 
-// const albumController = require('./controllers/albumController');
+const albumController = require('./controllers/albumController');
 
 app.use(bodyParser.json());
 

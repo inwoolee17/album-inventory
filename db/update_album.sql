@@ -1,5 +1,5 @@
 SELECT * FROM album;
 
 UPDATE album
-SET name = ${name}, url = ${url}
+SET name = ${name}, image = ${image}
 WHERE id = ${id};
