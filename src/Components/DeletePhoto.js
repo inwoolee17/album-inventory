@@ -17,19 +17,20 @@ class DeletePhoto extends Component {
 		super();
 
 		this.state = {
-			inventory: null,
+			album: null,
 			loading: true,
 			lightBoxImage: null,
 			lightBoxOpen: false,
 		}
 	};
 
-	componentsDidMount(){
+	componentDidMount(){
+		console.log('deletephoto')
 		axios.get('/api/album')
 			.then(res => {
 			this.setState({
 				loading: false,
-				album: res.date
+				album: res.data
 			})
 		})
 		.catch( error => {
@@ -65,6 +66,7 @@ class DeletePhoto extends Component {
 	};
 
 	render() {
+		console.log('render---')
 		let album = this.state.album ? this.state.album.map( (e, i) => {
 			return (
 				<div key={i} className="PhotoList">

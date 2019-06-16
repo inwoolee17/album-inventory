@@ -2,6 +2,7 @@
   "name": "inventory_03",
   "version": "0.1.0",
   "private": true,
+  "main": "server/index.js",
   "proxy": "http://localhost:4001",
   "dependencies": {
     "@emotion/core": "^10.0.10",
