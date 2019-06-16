@@ -46,7 +46,7 @@ class DeletePhoto extends Component {
 				.then(res => {
 				this.setState({
 					loading: false,
-					album: res.date
+					album: res.data
 				})
 			})
 			.catch( error => {
