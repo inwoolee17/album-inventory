@@ -39,6 +39,7 @@ class DeletePhoto extends Component {
 	};
 
 	deletePhoto = (id) => {
+		console.log("delete photo")
 		axios.delete(`/api/album/${id}`)
 			.then(res => {
 				console.log(res);

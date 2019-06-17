@@ -42,7 +42,7 @@ app.post('/api/album', (req, res) => {
 app.delete('/api/album/:id', (req, res) => {
 	const db = req.app.get('db');
 	const id = req.params.id;
-	db.delte_album({
+	db.delete_album({
 		id: id
 	})
 	.then(results => res.status(200).send())
